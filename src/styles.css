@@ -128,8 +128,10 @@ h1 { font-size: clamp(3rem,6.3vw,6.2rem); letter-spacing: -.06em; margin-bottom:
 .profile-links .is-disabled { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; padding: 9px 13px; border: 1px dashed var(--line); border-radius: 12px; color: #a3a5a9; cursor: not-allowed; }
 .student-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
 .student-card { border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: white; }
-.student-photo { height: 280px; background: var(--soft); }
+.student-photo { aspect-ratio: 3 / 2; background: var(--soft); }
 .student-photo img { width: 100%; height: 100%; object-fit: cover; }
+/* Cards are wider than tall: keep the top of real portraits (where faces are) in frame. */
+.student-photo img.student-portrait { object-position: center 10%; }
 .student-body { padding: 28px; }
 .student-body h3 { font-size: 2rem; margin: 8px 0 14px; }
 .student-body p { color: var(--muted); }
@@ -188,7 +190,7 @@ footer { background: #090909; color: white; padding: 58px 0 30px; }
   .nav-links.open a { opacity: 1; transform: none; transition-delay: calc(var(--i, 0) * 40ms + 60ms); }
   .nav-links a { border-radius: 10px; font-size: .95rem; padding: 10px 12px; }
   .nav-links .nav-cta { margin-left: 0; }
-  .hero-grid,.quote-panel,.grid-3,.grid-2,.contact-grid,.student-grid,.platform-grid,.join-grid { grid-template-columns: 1fr; }
+  .hero-grid,.quote-panel,.grid-3,.grid-2,.contact-grid,.platform-grid,.join-grid { grid-template-columns: 1fr; }
   .hero-grid { gap: 30px; }
   .collaboration-visual { min-height: 520px; }
   .section-head { display: block; }
@@ -200,6 +202,7 @@ footer { background: #090909; color: white; padding: 58px 0 30px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
+  .student-grid { grid-template-columns: 1fr; }
   .brand-copy span { display: none; }
   .brand { min-width: auto; }
   .hero { min-height: auto; }

@@ -70,13 +70,18 @@ function ProfileLinks({ person }) {
 // set `photo: '/assets/people/<first-last>/photo.jpg'` once a portrait is added there.
 // Omit `photo` to show the humanoid-robot placeholder (public/assets/people/placeholder.svg).
 // Profile buttons: set `email`, `scholar` (URL), `cv` ('/assets/people/<first-last>/cv.pdf'),
-// and `linkedin` (URL); any left out show as greyed-out buttons.
+// and `linkedin` (URL); any left out show as greyed-out buttons. Remove `note` once a
+// profile is complete.
 const graduateStudents = [
   {
     name: 'David Paez Ramirez',
     role: 'Ph.D. Student · Mechanical and Nuclear Engineering',
-    bio: 'David is a Ph.D. student in the Department of Mechanical and Nuclear Engineering at Virginia Commonwealth University and a graduate researcher in PARCE-LAB.',
-    note: 'A photograph, biography, research interests, and project information will be added later.',
+    bio: 'David is a Ph.D. student in the Department of Mechanical and Nuclear Engineering at Virginia Commonwealth University and a graduate researcher in PARCE-LAB. David holds a B.S. in Electronic Engineering from Universidad Santo Tomás in Bogotá, Colombia, and has published work on distributed particle swarm optimization for multi-robot search and rescue and on optimization- and neural-network-based control of power converters. David’s industry experience includes DevOps and backend engineering on AWS cloud infrastructure and machine learning development.',
+    photo: '/assets/people/david-paez/photo.webp',
+    email: 'paezd2@vcu.edu',
+    scholar: 'https://scholar.google.com/citations?user=jCtxNgoAAAAJ&hl=en',
+    cv: '/assets/people/david-paez/cv.pdf',
+    linkedin: 'https://www.linkedin.com/in/david-p%C3%A1ez-ram%C3%ADrez-5a429b102/',
   },
 ];
 
@@ -100,7 +105,7 @@ function StudentCard({ student }) {
     <StaggerItem as="article" className="student-card" lift>
       <div className="student-photo">
         {student.photo ? (
-          <img src={asset(student.photo)} alt={`Portrait of ${student.name}`} />
+          <img className="student-portrait" src={asset(student.photo)} alt={`Portrait of ${student.name}`} />
         ) : (
           <img src={asset('/assets/people/placeholder.svg')} alt="" />
         )}
