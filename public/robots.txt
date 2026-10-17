@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://parce-lab.github.io/webpage/sitemap.xml
