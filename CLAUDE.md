@@ -9,16 +9,16 @@ Website for PARCE-LAB (Planning, Autonomy, and Reliable Control for Embodied-Sys
 ## Commands
 
 ```
-npm run dev       # dev server, http://localhost:5173
+npm run dev       # dev server, http://localhost:5173/webpage/
 npm run build     # vite build, then scripts/spa-fallback.js copies dist/index.html → dist/404.html
-npm run preview   # serve dist/ at http://localhost:4173
+npm run preview   # serve dist/ at http://localhost:4173/webpage/
 ```
 
 On this Windows machine Node lives in `C:\Program Files\nodejs`; a shell started before Node was installed may need it prepended to `PATH`.
 
 ## Deployment
 
-GitHub Pages for `PARCE-Lab/PARCE-Lab.github.io`, served at `https://parce-lab.github.io` (site root, so Vite `base` is `/`). `.github/workflows/deploy.yml` builds and deploys on push to `main` or `master`; Pages source must be set to "GitHub Actions". GitHub Pages can't rewrite URLs, so deep links such as `/research` load through the `404.html` copy of the app, and React Router takes over from there.
+GitHub Pages project site for `PARCE-Lab/webpage`, served at `https://parce-lab.github.io/webpage/` (Vite `base` is `/webpage/`; `BrowserRouter` gets it as `basename` in `main.jsx`). The repo name is fixed by the lab, so keep the sub-path. Absolute URLs with `/webpage/` also live in `index.html` (og tags), `public/sitemap.xml`, `public/robots.txt`, and `SITE_URL` in `src/data/site.js`. `.github/workflows/deploy.yml` builds and deploys on push to `main` or `master`; Pages source must be set to "GitHub Actions". GitHub Pages can't rewrite URLs, so deep links such as `/research` load through the `404.html` copy of the app, and React Router takes over from there.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ GitHub Pages for `PARCE-Lab/PARCE-Lab.github.io`, served at `https://parce-lab.g
 - Each page renders `<Seo title description />`. React 19 hoists its `<title>`/`<meta>` tags into `<head>`. Site-wide meta is in the root `index.html`; link-preview crawlers don't run JS, so the og:/twitter: tags there (and `assets/images/og-image.jpg`, 1200×630) are what shared links show.
 - Active menu item styling relies on `NavLink` setting `aria-current="page"`, which `styles.css` targets.
 - Content lives in data modules: `src/data/research.js` (research thrusts, also counted on Home), `src/data/publications.js` (array of `{year, type: 'journal'|'conference'|'software', title, authors, venue, link?, image?, imageAlt?, featured?}`, newest first; `type` must match `FILTERS` in `pages/Publications.jsx`; `featured` is currently unused), `src/data/news.js` (`summary` is the short Home-page wording), `src/data/site.js` (contact info, external URLs, nav/footer). People, research thrusts, and other copy are arrays at the top of each page component.
-- Static files (images, robots.txt, sitemap.xml, .nojekyll) are in `public/` and referenced with root-absolute paths like `/assets/images/...`. Each lab member has a folder `public/assets/people/<first-last>/` holding `photo.webp|jpg` and optionally `cv.pdf`. Images are WebP sized for display (originals are in git history); favicons are `public/favicon-32.png` and `public/apple-touch-icon.png`.
+- Static files (images, robots.txt, sitemap.xml, .nojekyll) are in `public/`. Data files and components write them root-style (`/assets/images/...`), and every place one becomes an `<img src>` or file `href` must wrap it in `asset()` from `src/utils/asset.js`, which prepends the base (`Zoomable` already does). Router `<Link to="/...">` paths need no wrapping. Each lab member has a folder `public/assets/people/<first-last>/` holding `photo.webp|jpg` and optionally `cv.pdf`. Images are WebP sized for display (originals are in git history); favicons are `public/favicon-32.png` and `public/apple-touch-icon.png`.
 
 ## Styling and animation
 

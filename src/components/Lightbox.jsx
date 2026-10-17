@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { asset } from '../utils/asset.js';
 import { AnimatePresence, motion } from 'motion/react';
 
 const LightboxContext = createContext(() => {});
@@ -60,8 +61,9 @@ function Overlay({ image, onClose }) {
 }
 
 // An image that opens in the lightbox when clicked.
-export function Zoomable({ src, alt, caption, ...imgProps }) {
+export function Zoomable({ src: path, alt, caption, ...imgProps }) {
   const open = useContext(LightboxContext);
+  const src = asset(path);
   return (
     <button type="button" className="zoom-trigger" aria-label={`Enlarge image: ${alt}`} onClick={() => open({ src, alt, caption })}>
       <img src={src} alt={alt} {...imgProps} />

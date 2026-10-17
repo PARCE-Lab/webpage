@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { asset } from '../utils/asset.js';
 import Seo from '../components/Seo.jsx';
 import PageHero from '../components/PageHero.jsx';
 import { Reveal, Stagger, StaggerItem } from '../components/motion.jsx';
@@ -55,7 +56,7 @@ function ProfileLinks({ person }) {
         }
         const Tag = external ? ExternalLink : 'a';
         return (
-          <Tag key={key} href={href ? href(value) : value}>
+          <Tag key={key} href={href ? href(value) : asset(value)}>
             {icon}
             <span>{label}</span>
           </Tag>
@@ -99,9 +100,9 @@ function StudentCard({ student }) {
     <StaggerItem as="article" className="student-card" lift>
       <div className="student-photo">
         {student.photo ? (
-          <img src={student.photo} alt={`Portrait of ${student.name}`} />
+          <img src={asset(student.photo)} alt={`Portrait of ${student.name}`} />
         ) : (
-          <img src="/assets/people/placeholder.svg" alt="" />
+          <img src={asset('/assets/people/placeholder.svg')} alt="" />
         )}
       </div>
       <div className="student-body">
@@ -137,7 +138,7 @@ export default function People() {
           </div>
           <Reveal as="article" className="pi-card">
             <div className="pi-photo">
-              <img src="/assets/people/gustavo-cardona/photo.webp" alt="Portrait of Gustavo A. Cardona" />
+              <img src={asset('/assets/people/gustavo-cardona/photo.webp')} alt="Portrait of Gustavo A. Cardona" />
             </div>
             <div className="pi-body">
               <div className="role">Assistant Professor · VCU Mechanical and Nuclear Engineering</div>

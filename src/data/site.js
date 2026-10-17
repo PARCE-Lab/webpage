@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://parce-lab.github.io';
+export const SITE_URL = 'https://parce-lab.github.io/webpage';
 export const LAB_NAME = 'Planning, Autonomy, and Reliable Control for Embodied-Systems Lab';
 
 export const EMAIL = 'cardonacalg@vcu.edu';

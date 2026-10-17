@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { asset } from '../utils/asset.js';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import Seo from '../components/Seo.jsx';
 import PageHero from '../components/PageHero.jsx';
@@ -78,7 +79,7 @@ export default function Publications() {
         </p>
         <div className="button-row">
           <ExternalLink className="btn btn-primary" href={SCHOLAR_URL}>Google Scholar ↗</ExternalLink>
-          <a className="btn btn-secondary" href={CV_URL}>Full CV</a>
+          <a className="btn btn-secondary" href={asset(CV_URL)}>Full CV</a>
         </div>
       </PageHero>
 

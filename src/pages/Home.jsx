@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { asset } from '../utils/asset.js';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo.jsx';
 import NewsList from '../components/NewsList.jsx';
@@ -78,7 +79,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <motion.div className="hero-copy" variants={heroContainer} initial="hidden" animate="show">
-            <motion.img variants={heroItem} className="hero-logo" src="/assets/images/parce-lab-logo.webp" alt={`PARCE-LAB — ${LAB_NAME}`} />
+            <motion.img variants={heroItem} className="hero-logo" src={asset('/assets/images/parce-lab-logo.webp')} alt={`PARCE-LAB — ${LAB_NAME}`} />
             <motion.div variants={heroItem} className="eyebrow">Embodied autonomy at VCU</motion.div>
             <motion.h1 variants={heroItem}>
               Robots that plan, <span>adapt, and earn trust.</span>
@@ -101,7 +102,7 @@ export default function Home() {
               transition={{ type: 'spring', stiffness: 90, damping: 14, delay: 0.35 }}
             >
               <img
-                src="/assets/images/figures/human-humanoid-collaboration.jpg"
+                src={asset('/assets/images/figures/human-humanoid-collaboration.jpg')}
                 alt="A human and a humanoid robot collaborating in a physical manipulation task"
               />
             </motion.div>
@@ -163,7 +164,7 @@ export default function Home() {
       <section className="section section-dark">
         <Reveal className="container quote-panel">
           <div className="logo-panel">
-            <img src="/assets/images/parce-lab-logo-white.webp" alt="PARCE-LAB" />
+            <img src={asset('/assets/images/parce-lab-logo-white.webp')} alt="PARCE-LAB" />
           </div>
           <div>
             <blockquote>
@@ -188,7 +189,7 @@ export default function Home() {
             <p>A growing team working across robotics, control, optimization, and human–robot interaction.</p>
           </Reveal>
           <Reveal className="person-preview">
-            <img src="/assets/people/gustavo-cardona/photo.webp" alt="Portrait of Gustavo A. Cardona" />
+            <img src={asset('/assets/people/gustavo-cardona/photo.webp')} alt="Portrait of Gustavo A. Cardona" />
             <div>
               <div className="role">Principal Investigator</div>
               <h3>Gustavo A. Cardona</h3>
@@ -199,7 +200,7 @@ export default function Home() {
               </p>
               <div className="button-row">
                 <Link className="btn btn-primary" to="/people">Meet the lab →</Link>
-                <a className="btn btn-secondary" href={CV_URL}>Download CV</a>
+                <a className="btn btn-secondary" href={asset(CV_URL)}>Download CV</a>
               </div>
             </div>
           </Reveal>

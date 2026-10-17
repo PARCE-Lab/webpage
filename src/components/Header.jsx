@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { asset } from '../utils/asset.js';
 import { Link, NavLink, useLocation } from 'react-router';
 import { useMotionValueEvent, useScroll } from 'motion/react';
 import { NAV_ITEMS } from '../data/site.js';
@@ -18,7 +19,7 @@ export default function Header() {
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-wrap">
         <Link className="brand" to="/">
-          <img src="/assets/images/parce-lab-mark.webp" alt="" />
+          <img src={asset('/assets/images/parce-lab-mark.webp')} alt="" />
           <span className="brand-copy">
             <strong>PARCE-LAB</strong>
             <span>Planning · Autonomy · Reliable Control</span>

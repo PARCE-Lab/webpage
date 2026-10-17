@@ -32,7 +32,7 @@ Then start the local preview:
 npm run dev
 ```
 
-Open http://localhost:5173. The page refreshes by itself every time you save a file, so you can see each change as you make it. Stop the preview with `Ctrl + C`.
+Open http://localhost:5173/webpage/. The page refreshes by itself every time you save a file, so you can see each change as you make it. Stop the preview with `Ctrl + C`.
 
 ---
 
@@ -229,7 +229,7 @@ The Facilities, Teaching, Join, and Contact pages keep their text inside the pag
 
 ## 9. Images and files
 
-- **Location:** everything in `public/` is published as-is. A file at `public/assets/images/figures/robot.png` is referenced in the code as `/assets/images/figures/robot.png`, without `public`.
+- **Location:** everything in `public/` is published as-is. A file at `public/assets/images/figures/robot.png` is referenced in the code as `/assets/images/figures/robot.png`, without `public`. Don't add `/webpage` yourself: the site adds it automatically.
 - **File names:** lowercase, with hyphens and no spaces, e.g. `catenary-robot.jpg`.
 - **Size:** keep each image under about 150 KB and no wider than 1600 px (800 px for portraits). Big files make the site slow, especially on phones.
 - **Format:** prefer `.webp`; it is several times smaller than `.png` or `.jpg` at the same quality. Convert with a free tool such as https://squoosh.app (choose WebP, quality 80–90, and resize). `.jpg` is fine for small photos.
@@ -240,7 +240,7 @@ The Facilities, Teaching, Join, and Contact pages keep their text inside the pag
 
 ## 10. Check your changes and publish
 
-1. **Preview locally.** With `npm run dev` running, check every page you touched at http://localhost:5173. Also check a narrow window (phone size).
+1. **Preview locally.** With `npm run dev` running, check every page you touched at http://localhost:5173/webpage/. Also check a narrow window (phone size).
 2. **Run the production build**, which catches errors the preview can miss:
    ```
    npm run build
@@ -252,7 +252,7 @@ The Facilities, Teaching, Join, and Contact pages keep their text inside the pag
    git commit -m "Add news: paper accepted at ICRA 2027"
    git push
    ```
-4. **Go live.** The public site at https://parce-lab.github.io is rebuilt automatically whenever changes reach the `main` branch. Merge your branch through a pull request on GitHub, then check the **Actions** tab: a green check means the site was updated, usually within two minutes.
+4. **Go live.** The public site at https://parce-lab.github.io/webpage/ is rebuilt automatically whenever changes reach the `main` branch. Merge your branch through a pull request on GitHub, then check the **Actions** tab: a green check means the site was updated, usually within two minutes.
 
 ---
 
