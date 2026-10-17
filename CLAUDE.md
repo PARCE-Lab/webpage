@@ -28,7 +28,7 @@ GitHub Pages for `PARCE-Lab/PARCE-Lab.github.io`, served at `https://parce-lab.g
 - Each page renders `<Seo title description />`. React 19 hoists its `<title>`/`<meta>` tags into `<head>`. Site-wide meta (og:image etc.) is in the root `index.html`.
 - Active menu item styling relies on `NavLink` setting `aria-current="page"`, which `styles.css` targets.
 - Content lives in data modules: `src/data/research.js` (research thrusts, also counted on Home), `src/data/publications.js` (array of `{year, type: 'journal'|'conference'|'software', title, authors, venue, link?, image?, imageAlt?, featured?}`, newest first; `type` must match `FILTERS` in `pages/Publications.jsx`; `featured` is currently unused), `src/data/news.js` (`summary` is the short Home-page wording), `src/data/site.js` (contact info, external URLs, nav/footer). People, research thrusts, and other copy are arrays at the top of each page component.
-- Static files (images, CV PDF, robots.txt, sitemap.xml, .nojekyll) are in `public/` and referenced with root-absolute paths like `/assets/images/...`.
+- Static files (images, robots.txt, sitemap.xml, .nojekyll) are in `public/` and referenced with root-absolute paths like `/assets/images/...`. Each lab member has a folder `public/assets/people/<first-last>/` holding `photo.png|jpg` and optionally `cv.pdf`.
 
 ## Styling and animation
 

@@ -31,7 +31,8 @@ npm run preview   # serve the production build at http://localhost:4173
 - News: `src/data/news.js`.
 - Email, profile links, menu, and footer links: `src/data/site.js`.
 - Page text: `src/pages/`.
-- Images and the CV PDF: `public/assets/`.
+- Lab member photos and CVs: one folder per person in `public/assets/people/` (see the README there).
+- Other images: `public/assets/images/`.
 
 ## Deployment on GitHub Pages
 

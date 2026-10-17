@@ -159,7 +159,7 @@ export default function Home() {
             <p>A growing team working across robotics, control, optimization, and human–robot interaction.</p>
           </Reveal>
           <Reveal className="person-preview">
-            <img src="/assets/images/gustavo-cardona.png" alt="Portrait of Gustavo A. Cardona" />
+            <img src="/assets/people/gustavo-cardona/photo.png" alt="Portrait of Gustavo A. Cardona" />
             <div>
               <div className="role">Principal Investigator</div>
               <h3>Gustavo A. Cardona</h3>

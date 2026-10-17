@@ -2,7 +2,7 @@ export const SITE_URL = 'https://parce-lab.github.io';
 export const LAB_NAME = 'Planning, Autonomy, and Reliable Control for Embodied-Systems Lab';
 
 export const EMAIL = 'cardonacalg@vcu.edu';
-export const CV_URL = '/assets/docs/Gustavo-Cardona-CV.pdf';
+export const CV_URL = '/assets/people/gustavo-cardona/cv.pdf';
 export const SCHOLAR_URL = 'https://scholar.google.com/citations?user=NqV4m6EAAAAJ&hl=en';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/gustavo-a-cardona-056227206/';
 export const DEPARTMENT_URL = 'https://egr.vcu.edu/departments/mechanical-nuclear-engineering/';
