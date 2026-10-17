@@ -4,6 +4,7 @@ import Seo from '../components/Seo.jsx';
 import PageHero from '../components/PageHero.jsx';
 import { Reveal, Stagger, StaggerItem } from '../components/motion.jsx';
 import { Zoomable } from '../components/Lightbox.jsx';
+import KeywordGraph from '../components/KeywordGraph.jsx';
 import { thrusts } from '../data/research.js';
 
 const platforms = [
@@ -61,7 +62,20 @@ export default function Research() {
         </div>
       </section>
 
-      <section className="section section-soft">
+      <section className="section section-soft" id="connections">
+        <div className="container">
+          <Reveal className="section-head">
+            <div>
+              <div className="eyebrow">Connected research</div>
+              <h2>One vision, many links.</h2>
+            </div>
+            <p>Each thrust's keywords feed into the others. Hover or tap a keyword to see how ideas carry across our work.</p>
+          </Reveal>
+          <KeywordGraph />
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container">
           <Reveal className="section-head">
             <div>

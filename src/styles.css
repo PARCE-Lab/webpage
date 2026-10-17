@@ -290,3 +290,29 @@ footer { background: #090909; color: white; padding: 58px 0 30px; }
 @media (prefers-reduced-motion: reduce) {
   .signal { animation: none !important; }
 }
+
+/* Research keyword graph (components/KeywordGraph.jsx): monochrome, Obsidian-style.
+   Hovered node takes the gold accent; its neighbours go ink; everything else fades. */
+.kg-canvas { border: 1px solid var(--line); border-radius: var(--radius); background: #fcfcfb; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.kg-svg { display: block; width: 100%; min-width: 720px; height: auto; font-family: inherit; user-select: none; }
+.kg-edge { stroke: #d6d6d0; stroke-width: 1; transition: stroke .2s ease, opacity .2s ease; }
+.kg-edge.cross { stroke-dasharray: 3 4; }
+.kg-edge.lit { stroke: #6f7277; stroke-width: 1.4; }
+.kg-edge.dim { opacity: .3; }
+.kg-node { cursor: grab; outline: none; touch-action: none; transition: opacity .2s ease; }
+.kg-node:active { cursor: grabbing; }
+.kg-node.dim { opacity: .22; }
+.kg-hit { fill: transparent; }
+.kg-dot { fill: #a3a5a9; transition: fill .2s ease; }
+.kg-node.hub .kg-dot { fill: var(--ink); }
+.kg-node.active .kg-dot { fill: var(--gold-deep); }
+.kg-node:focus-visible .kg-dot { stroke: var(--gold-deep); stroke-width: 3; }
+.kg-label { font-size: 12px; font-weight: 600; fill: var(--muted); paint-order: stroke; stroke: #fcfcfb; stroke-width: 4px; stroke-linejoin: round; transition: fill .2s ease; }
+.kg-node.hub .kg-label { font-size: 13.5px; font-weight: 800; fill: var(--ink); }
+.kg-node.active .kg-label { fill: var(--ink); }
+.kg-info { min-height: 58px; margin-top: 14px; color: var(--muted); font-size: .95rem; }
+.kg-info p { margin: 0 0 4px; }
+.kg-info strong, .kg-list strong { color: var(--ink); }
+.kg-list { margin-top: 8px; color: var(--muted); font-size: .95rem; }
+.kg-list summary { cursor: pointer; font-weight: 750; color: var(--ink); margin-bottom: 10px; }
+.kg-list ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
