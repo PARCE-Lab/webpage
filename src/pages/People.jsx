@@ -72,7 +72,7 @@ function ProfileLinks({ person }) {
 // and `linkedin` (URL); any left out show as greyed-out buttons.
 const graduateStudents = [
   {
-    name: 'David Paez',
+    name: 'David Paez Ramirez',
     role: 'Ph.D. Student · Mechanical and Nuclear Engineering',
     bio: 'David is a Ph.D. student in the Department of Mechanical and Nuclear Engineering at Virginia Commonwealth University and a graduate researcher in PARCE-LAB.',
     note: 'A photograph, biography, research interests, and project information will be added later.',

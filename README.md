@@ -27,6 +27,8 @@ npm run preview   # serve the production build at http://localhost:4173
 
 ## Editing content
 
+See [MANUAL.md](MANUAL.md) for step-by-step instructions and templates for adding news, publications, people, and more.
+
 - Publications: `src/data/publications.js`. Representative figures are stored in `public/assets/images/figures/`.
 - News: `src/data/news.js`.
 - Email, profile links, menu, and footer links: `src/data/site.js`.

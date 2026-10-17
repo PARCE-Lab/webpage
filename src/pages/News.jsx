@@ -11,7 +11,7 @@ export default function News() {
       </PageHero>
       <section className="section">
         <div className="container">
-          <NewsList />
+          <NewsList detailed />
         </div>
       </section>
     </>
