@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { asset } from '../utils/asset.js';
+import { LabLogo } from './Logo.jsx';
 import { DEPARTMENT_URL, EMAIL, FOOTER_EXPLORE, LAB_NAME, LINKEDIN_URL, SCHOLAR_URL } from '../data/site.js';
 import ExternalLink from './ExternalLink.jsx';
 
@@ -9,9 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div className="footer-logo-wrap">
-              <img className="footer-logo" src={asset('/assets/images/parce-lab-logo-white.webp')} alt={`PARCE-LAB — ${LAB_NAME}`} />
-            </div>
+            <LabLogo className="footer-logo" title={`PARCE-LAB — ${LAB_NAME}`} />
             <p>{LAB_NAME} at Virginia Commonwealth University.</p>
           </div>
           <div>

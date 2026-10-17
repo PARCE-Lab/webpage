@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMax slice">
-  <!-- Humanoid-robot portrait placeholder for lab members without a photo yet. -->
-  <rect width="400" height="280" fill="#efefeb"/>
-  <g fill="#cfcfc9">
+  <!-- Humanoid-robot portrait placeholder for lab members without a photo yet. Colors follow the page theme. -->
+  <style>
+    .bg { fill: #efefeb; } .body { fill: #cfcfc9; } .neck { fill: #c2c2bb; } .detail { fill: #b3b3ac; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #202126; } .body { fill: #34363c; } .neck { fill: #3c3e45; } .detail { fill: #4a4d55; }
+    }
+  </style>
+  <rect class="bg" width="400" height="280"/>
+  <g class="body">
     <!-- antenna -->
     <rect x="197" y="38" width="6" height="22" rx="3"/>
     <circle cx="200" cy="34" r="8"/>
@@ -13,15 +19,15 @@
     <path d="M80 280v-40c0-34 26-58 60-58h120c34 0 60 24 60 58v40z"/>
   </g>
   <!-- neck -->
-  <rect x="182" y="156" width="36" height="28" rx="6" fill="#c2c2bb"/>
+  <rect class="neck" x="182" y="156" width="36" height="28" rx="6"/>
   <!-- visor, eyes, and mouth grille -->
-  <rect x="156" y="86" width="88" height="36" rx="18" fill="#efefeb"/>
-  <circle cx="182" cy="104" r="7" fill="#b3b3ac"/>
-  <circle cx="218" cy="104" r="7" fill="#b3b3ac"/>
-  <rect x="184" y="136" width="32" height="5" rx="2.5" fill="#efefeb"/>
+  <rect class="bg" x="156" y="86" width="88" height="36" rx="18"/>
+  <circle class="detail" cx="182" cy="104" r="7"/>
+  <circle class="detail" cx="218" cy="104" r="7"/>
+  <rect class="bg" x="184" y="136" width="32" height="5" rx="2.5"/>
   <!-- shoulder seams and chest light -->
-  <rect x="136" y="196" width="4" height="84" rx="2" fill="#efefeb"/>
-  <rect x="260" y="196" width="4" height="84" rx="2" fill="#efefeb"/>
-  <circle cx="200" cy="232" r="15" fill="#efefeb"/>
-  <circle cx="200" cy="232" r="7" fill="#b3b3ac"/>
+  <rect class="bg" x="136" y="196" width="4" height="84" rx="2"/>
+  <rect class="bg" x="260" y="196" width="4" height="84" rx="2"/>
+  <circle class="bg" cx="200" cy="232" r="15"/>
+  <circle class="detail" cx="200" cy="232" r="7"/>
 </svg>

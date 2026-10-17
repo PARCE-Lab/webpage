@@ -5,6 +5,7 @@ import Seo from '../components/Seo.jsx';
 import NewsList from '../components/NewsList.jsx';
 import ExternalLink from '../components/ExternalLink.jsx';
 import { Zoomable } from '../components/Lightbox.jsx';
+import { LabLogo } from '../components/Logo.jsx';
 import { AnimatedNumber, Reveal, Stagger, StaggerItem } from '../components/motion.jsx';
 import { CV_URL, LAB_NAME } from '../data/site.js';
 import { publications } from '../data/publications.js';
@@ -79,7 +80,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <motion.div className="hero-copy" variants={heroContainer} initial="hidden" animate="show">
-            <motion.img variants={heroItem} className="hero-logo" src={asset('/assets/images/parce-lab-logo.webp')} alt={`PARCE-LAB — ${LAB_NAME}`} />
+            <motion.div variants={heroItem} className="hero-logo"><LabLogo title={`PARCE-LAB — ${LAB_NAME}`} /></motion.div>
             <motion.div variants={heroItem} className="eyebrow">Embodied autonomy at VCU</motion.div>
             <motion.h1 variants={heroItem}>
               Robots that plan, <span>adapt, and earn trust.</span>
@@ -164,7 +165,7 @@ export default function Home() {
       <section className="section section-dark">
         <Reveal className="container quote-panel">
           <div className="logo-panel">
-            <img src={asset('/assets/images/parce-lab-logo-white.webp')} alt="PARCE-LAB" />
+            <LabLogo />
           </div>
           <div>
             <blockquote>
