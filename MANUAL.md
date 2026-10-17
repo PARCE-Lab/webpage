@@ -223,7 +223,7 @@ Open `src/data/site.js`:
 
 The Facilities, Teaching, Join, and Contact pages keep their text inside the page file itself (`src/pages/Facilities.jsx`, etc.). Lists such as `platforms` in Facilities or `areas` in Teaching are at the top of each file. Edit the text between quotes and leave the rest unchanged.
 
-**Adding a completely new page** needs some code changes: a route in `src/App.jsx`, a menu entry in `src/data/site.js`, and a line in `public/sitemap.xml`. Ask whoever maintains the code, or follow `CLAUDE.md`.
+**Adding a completely new page** needs some code changes: a route in `src/App.jsx`, a menu entry in `src/data/site.js`, and a line in `public/sitemap.xml`. Ask whoever maintains the code, or follow [DEVELOPER.md](DEVELOPER.md).
 
 ---
 
@@ -246,13 +246,16 @@ The Facilities, Teaching, Join, and Contact pages keep their text inside the pag
    npm run build
    ```
    It must end with `✓ built`. If it shows an error, it names the file and line; usually it's a missing comma or quote.
-3. **Commit** on your working branch with a clear message, for example:
+3. **Commit on a feature branch**, never directly on `main`, `qa`, or `dev`. Content updates count as features. Start from `dev`:
    ```
+   git checkout dev
+   git pull
+   git checkout -b feature/news-icra-2027
    git add -A
    git commit -m "Add news: paper accepted at ICRA 2027"
-   git push
+   git push -u origin feature/news-icra-2027
    ```
-4. **Go live.** The public site at https://parce-lab.github.io/webpage/ is rebuilt automatically whenever changes reach the `main` branch. Merge your branch through a pull request on GitHub, then check the **Actions** tab: a green check means the site was updated, usually within two minutes.
+4. **Go live.** On GitHub, open a pull request from your branch into `dev`. The change then moves `dev` → `qa` → `main` through pull requests. The public site at https://parce-lab.github.io/webpage/ is rebuilt automatically when it reaches `main`; check the **Actions** tab, where a green check means the site was updated, usually within two minutes. The full branch workflow, including urgent fixes, is in [DEVELOPER.md](DEVELOPER.md).
 
 ---
 

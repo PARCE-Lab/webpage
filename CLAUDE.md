@@ -20,6 +20,8 @@ On this Windows machine Node lives in `C:\Program Files\nodejs`; a shell started
 
 GitHub Pages project site for `PARCE-Lab/webpage`, served at `https://parce-lab.github.io/webpage/` (Vite `base` is `/webpage/`; `BrowserRouter` gets it as `basename` in `main.jsx`). The repo name is fixed by the lab, so keep the sub-path. Absolute URLs with `/webpage/` also live in `index.html` (og tags), `public/sitemap.xml`, `public/robots.txt`, and `SITE_URL` in `src/data/site.js`. `.github/workflows/deploy.yml` builds and deploys on push to `main` or `master`; Pages source must be set to "GitHub Actions". GitHub Pages can't rewrite URLs, so deep links such as `/research` load through the `404.html` copy of the app, and React Router takes over from there.
 
+Branching follows `DEVELOPER.md`: `feature/*` and `bugfix/*` branch from and merge into `dev`; releases go `dev` → `qa` → `main` via pull requests; `hotfix/*` branches from `main`, merges into `main`, then `main` is merged back into `dev`. Never commit directly to `main`, `qa`, or `dev`; only pushes to `main` deploy.
+
 ## Architecture
 
 - `src/App.jsx` defines all routes under `components/Layout.jsx` (header, footer, scroll-progress bar, back-to-top button, lightbox provider, page transitions). To add a page, add a route there, add it to `NAV_ITEMS` and/or `FOOTER_EXPLORE` in `src/data/site.js`, and add the URL to `public/sitemap.xml`.
