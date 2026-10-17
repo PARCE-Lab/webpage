@@ -25,10 +25,10 @@ GitHub Pages for `PARCE-Lab/PARCE-Lab.github.io`, served at `https://parce-lab.g
 - `src/App.jsx` defines all routes under `components/Layout.jsx` (header, footer, scroll-progress bar, back-to-top button, lightbox provider, page transitions). To add a page, add a route there, add it to `NAV_ITEMS` and/or `FOOTER_EXPLORE` in `src/data/site.js`, and add the URL to `public/sitemap.xml`.
 - Page transitions: `Layout` wraps the outlet in `<AnimatePresence mode="wait">` keyed by pathname; `FrozenOutlet` keeps the outgoing page rendering its own route while it exits. The `Page` wrapper resets scroll when the new page mounts, or jumps to the element whose id matches the URL hash (e.g. `/research#formal` — the Research thrust ids are `formal`, `planning`, `interaction`, `aerial`, linked from the Home cards).
 - `pages/NotFound.jsx` also redirects legacy static-site URLs (`/research.html` → `/research`).
-- Each page renders `<Seo title description />`. React 19 hoists its `<title>`/`<meta>` tags into `<head>`. Site-wide meta (og:image etc.) is in the root `index.html`.
+- Each page renders `<Seo title description />`. React 19 hoists its `<title>`/`<meta>` tags into `<head>`. Site-wide meta is in the root `index.html`; link-preview crawlers don't run JS, so the og:/twitter: tags there (and `assets/images/og-image.jpg`, 1200×630) are what shared links show.
 - Active menu item styling relies on `NavLink` setting `aria-current="page"`, which `styles.css` targets.
 - Content lives in data modules: `src/data/research.js` (research thrusts, also counted on Home), `src/data/publications.js` (array of `{year, type: 'journal'|'conference'|'software', title, authors, venue, link?, image?, imageAlt?, featured?}`, newest first; `type` must match `FILTERS` in `pages/Publications.jsx`; `featured` is currently unused), `src/data/news.js` (`summary` is the short Home-page wording), `src/data/site.js` (contact info, external URLs, nav/footer). People, research thrusts, and other copy are arrays at the top of each page component.
-- Static files (images, robots.txt, sitemap.xml, .nojekyll) are in `public/` and referenced with root-absolute paths like `/assets/images/...`. Each lab member has a folder `public/assets/people/<first-last>/` holding `photo.png|jpg` and optionally `cv.pdf`.
+- Static files (images, robots.txt, sitemap.xml, .nojekyll) are in `public/` and referenced with root-absolute paths like `/assets/images/...`. Each lab member has a folder `public/assets/people/<first-last>/` holding `photo.webp|jpg` and optionally `cv.pdf`. Images are WebP sized for display (originals are in git history); favicons are `public/favicon-32.png` and `public/apple-touch-icon.png`.
 
 ## Styling and animation
 
@@ -41,5 +41,5 @@ GitHub Pages for `PARCE-Lab/PARCE-Lab.github.io`, served at `https://parce-lab.g
 
 ## Notes
 
-- `public/assets/images/figures/` contains three figures not used on any page: `catl-planning-pipeline.png`, `heterogeneous-team-environment.png`, `partial-satisfaction-ast.png`.
+- `public/assets/images/figures/` contains three figures not used on any page: `catl-planning-pipeline.webp`, `heterogeneous-team-environment.webp`, `partial-satisfaction-ast.webp`.
 - The pre-React static site is in git history (`master` before the React migration on `feature/optional-react`).

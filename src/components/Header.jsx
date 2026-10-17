@@ -18,7 +18,7 @@ export default function Header() {
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-wrap">
         <Link className="brand" to="/">
-          <img src="/assets/images/parce-lab-mark.png" alt="" />
+          <img src="/assets/images/parce-lab-mark.webp" alt="" />
           <span className="brand-copy">
             <strong>PARCE-LAB</strong>
             <span>Planning · Autonomy · Reliable Control</span>

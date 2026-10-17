@@ -2,6 +2,8 @@ import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo.jsx';
 import NewsList from '../components/NewsList.jsx';
+import ExternalLink from '../components/ExternalLink.jsx';
+import { Zoomable } from '../components/Lightbox.jsx';
 import { AnimatedNumber, Reveal, Stagger, StaggerItem } from '../components/motion.jsx';
 import { CV_URL, LAB_NAME } from '../data/site.js';
 import { publications } from '../data/publications.js';
@@ -27,6 +29,33 @@ const foundations = [
 
 // Computed from the data files, so the numbers stay correct as content is added.
 const countType = (type) => publications.filter((p) => p.type === type).length;
+
+const PUB_TYPE_LABELS = { journal: 'Journal article', conference: 'Conference paper', software: 'Software' };
+
+// Newest entry in publications.js, shown beside the news.
+function LatestPublication({ pub }) {
+  if (!pub) return null;
+  return (
+    <Reveal as="article" className="latest-pub" delay={0.15}>
+      {pub.image && (
+        <div className="latest-pub-figure">
+          <Zoomable src={pub.image} alt={pub.imageAlt ?? ''} caption={pub.title} />
+        </div>
+      )}
+      <div className="latest-pub-body">
+        <div className="eyebrow">Latest publication</div>
+        <div className="latest-pub-meta">{PUB_TYPE_LABELS[pub.type] ?? pub.type} · {pub.year}</div>
+        <h3>{pub.title}</h3>
+        <p className="latest-pub-authors">{pub.authors}</p>
+        <p className="latest-pub-venue">{pub.venue}</p>
+        <div className="latest-pub-links">
+          {pub.link && <ExternalLink href={pub.link}>Read the paper ↗</ExternalLink>}
+          <Link to="/publications">All publications →</Link>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
 const stats = [
   { value: publications.length, label: 'Publications' },
   { value: countType('journal'), label: 'Journal articles' },
@@ -49,7 +78,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <motion.div className="hero-copy" variants={heroContainer} initial="hidden" animate="show">
-            <motion.img variants={heroItem} className="hero-logo" src="/assets/images/parce-lab-logo.png" alt={`PARCE-LAB — ${LAB_NAME}`} />
+            <motion.img variants={heroItem} className="hero-logo" src="/assets/images/parce-lab-logo.webp" alt={`PARCE-LAB — ${LAB_NAME}`} />
             <motion.div variants={heroItem} className="eyebrow">Embodied autonomy at VCU</motion.div>
             <motion.h1 variants={heroItem}>
               Robots that plan, <span>adapt, and earn trust.</span>
@@ -134,7 +163,7 @@ export default function Home() {
       <section className="section section-dark">
         <Reveal className="container quote-panel">
           <div className="logo-panel">
-            <img src="/assets/images/parce-lab-logo-white.jpg" alt="PARCE-LAB" />
+            <img src="/assets/images/parce-lab-logo-white.webp" alt="PARCE-LAB" />
           </div>
           <div>
             <blockquote>
@@ -159,7 +188,7 @@ export default function Home() {
             <p>A growing team working across robotics, control, optimization, and human–robot interaction.</p>
           </Reveal>
           <Reveal className="person-preview">
-            <img src="/assets/people/gustavo-cardona/photo.png" alt="Portrait of Gustavo A. Cardona" />
+            <img src="/assets/people/gustavo-cardona/photo.webp" alt="Portrait of Gustavo A. Cardona" />
             <div>
               <div className="role">Principal Investigator</div>
               <h3>Gustavo A. Cardona</h3>
@@ -186,7 +215,10 @@ export default function Home() {
             </div>
             <Link className="btn btn-secondary" to="/news">All news</Link>
           </Reveal>
-          <NewsList limit={3} short />
+          <div className="news-split">
+            <NewsList limit={3} short />
+            <LatestPublication pub={publications[0]} />
+          </div>
         </div>
       </section>
 

@@ -137,7 +137,7 @@ export default function People() {
           </div>
           <Reveal as="article" className="pi-card">
             <div className="pi-photo">
-              <img src="/assets/people/gustavo-cardona/photo.png" alt="Portrait of Gustavo A. Cardona" />
+              <img src="/assets/people/gustavo-cardona/photo.webp" alt="Portrait of Gustavo A. Cardona" />
             </div>
             <div className="pi-body">
               <div className="role">Assistant Professor · VCU Mechanical and Nuclear Engineering</div>

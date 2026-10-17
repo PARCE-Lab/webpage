@@ -139,7 +139,7 @@ Each person has a folder in `public/assets/people/`, named in lowercase with hyp
 ```
 public/assets/people/
 ├── placeholder.svg        robot image used when someone has no photo
-├── gustavo-cardona/       photo.png, cv.pdf
+├── gustavo-cardona/       photo.webp, cv.pdf
 ├── david-paez/
 ├── kenneth-white/
 └── timothy-wondree/
@@ -147,7 +147,7 @@ public/assets/people/
 
 For a new member, create a folder like `public/assets/people/jane-doe/`. Inside it, use these exact file names:
 
-- `photo.jpg` or `photo.png`: a portrait, preferably vertical or square, at least 600 px wide
+- `photo.webp` (or `photo.jpg`): a portrait, preferably square, about 800 px wide (see section 9 for converting)
 - `cv.pdf`: optional
 
 If a folder only contains a `.gitkeep` file, it's waiting for that person's photo. Delete `.gitkeep` once you add the photo.
@@ -231,8 +231,9 @@ The Facilities, Teaching, Join, and Contact pages keep their text inside the pag
 
 - **Location:** everything in `public/` is published as-is. A file at `public/assets/images/figures/robot.png` is referenced in the code as `/assets/images/figures/robot.png`, without `public`.
 - **File names:** lowercase, with hyphens and no spaces, e.g. `catenary-robot.jpg`.
-- **Size:** keep images under about 1 MB. Resize large photos before adding them, since big files make the site slow.
-- **Formats:** use `.jpg` for photos and `.png` for diagrams and figures.
+- **Size:** keep each image under about 150 KB and no wider than 1600 px (800 px for portraits). Big files make the site slow, especially on phones.
+- **Format:** prefer `.webp`; it is several times smaller than `.png` or `.jpg` at the same quality. Convert with a free tool such as https://squoosh.app (choose WebP, quality 80–90, and resize). `.jpg` is fine for small photos.
+- **Link preview image:** `public/assets/images/og-image.jpg` (1200×630) is the picture shown when the site is shared on LinkedIn, Slack, etc. Replace it with the same size and name to change it.
 - **Always write an `alt` / `imageAlt` description.** It's read aloud for visitors who can't see the image.
 
 ---

@@ -46,7 +46,7 @@ export const publications =
     "authors": "G. A. Cardona and C.-I. Vasile",
     "venue": "The International Journal of Robotics Research, 43(13), 2089–2111",
     "link": "https://journals.sagepub.com/doi/10.1177/02783649241240715",
-    "image": "/assets/images/figures/heterogeneous-team-plan.png",
+    "image": "/assets/images/figures/heterogeneous-team-plan.webp",
     "imageAlt": "Heterogeneous robot and resource trajectories from a temporal-logic planning case study",
     "featured": true
   },
@@ -70,7 +70,7 @@ export const publications =
     "title": "Preferences on Partial Satisfaction Using Weighted Signal Temporal Logic Specifications",
     "authors": "G. A. Cardona and C.-I. Vasile",
     "venue": "European Control Conference (ECC), pp. 1–6",
-    "image": "/assets/images/figures/weighted-stl-navigation.png",
+    "image": "/assets/images/figures/weighted-stl-navigation.webp",
     "imageAlt": "Navigation trajectories illustrating weighted partial satisfaction",
     "featured": true
   },
@@ -109,7 +109,7 @@ export const publications =
     "title": "Partial Satisfaction of Signal Temporal Logic Specifications for Coordination of Multi-Robot Systems",
     "authors": "G. A. Cardona and C.-I. Vasile",
     "venue": "Workshop on the Algorithmic Foundations of Robotics (WAFR), pp. 223–238",
-    "image": "/assets/images/figures/partial-satisfaction-trajectories.png",
+    "image": "/assets/images/figures/partial-satisfaction-trajectories.webp",
     "imageAlt": "Multi-robot trajectories and robustness results for partial satisfaction",
     "featured": true
   },
