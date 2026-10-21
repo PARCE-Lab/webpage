@@ -1,7 +1,7 @@
 import Seo from '../components/Seo.jsx';
 import { Stagger, StaggerItem } from '../components/motion.jsx';
 import PageHero from '../components/PageHero.jsx';
-import { EMAIL, PHD_APPLY_URL } from '../data/site.js';
+import { EMAIL, PHD_APPLY_URL, PHD_POSITION_OPEN } from '../data/site.js';
 
 const mailto = (subject) => `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
 
@@ -20,12 +20,28 @@ const interests = [
   },
 ];
 
+// What prospective Ph.D. students should send, shown whether or not a position is open.
+function PhdChecklist() {
+  return (
+    <ul>
+      <li>Your CV.</li>
+      <li>A brief description of your academic and research background.</li>
+      <li>Your intended starting term.</li>
+      <li>A concise explanation of why your interests align with PARCE-LAB.</li>
+      <li>One or two representative publications, manuscripts, thesis documents, code repositories, or project samples, when available.</li>
+      <li>Your unofficial transcript may be included when it helps explain your preparation, but it is not required for an initial inquiry.</li>
+    </ul>
+  );
+}
+
 export default function Join() {
   return (
     <>
       <Seo
         title="Join PARCE-LAB"
-        description="PARCE-LAB has an open Ph.D. position. Information for prospective Ph.D. students and current VCU students interested in the lab."
+        description={PHD_POSITION_OPEN
+          ? 'PARCE-LAB has an open Ph.D. position. Information for prospective Ph.D. students and current VCU students interested in the lab.'
+          : 'Information for current VCU students and prospective Ph.D. students interested in PARCE-LAB.'}
       />
       <PageHero eyebrow="Join PARCE-LAB" title="Work with us on trustworthy embodied autonomy.">
         <p>
@@ -51,28 +67,37 @@ export default function Join() {
               </ul>
               <a className="btn btn-primary" href={mailto('VCU Student Interest in PARCE-LAB')}>Email Prof. Cardona</a>
             </StaggerItem>
-            <StaggerItem as="article" className="join-card highlight">
-              <div className="role">Prospective Ph.D. Students</div>
-              <h2>Ph.D. position open</h2>
-              <p>
-                PARCE-LAB is recruiting a Ph.D. student. Candidates whose interests align with the lab are encouraged to
-                apply through the online application form.
-              </p>
-              <h3>Be ready to share:</h3>
-              <ul>
-                <li>Your CV.</li>
-                <li>A brief description of your academic and research background.</li>
-                <li>Your intended starting term.</li>
-                <li>A concise explanation of why your interests align with PARCE-LAB.</li>
-                <li>One or two representative publications, manuscripts, thesis documents, code repositories, or project samples, when available.</li>
-                <li>Your unofficial transcript may be included when it helps explain your preparation, but it is not required for an initial inquiry.</li>
-              </ul>
-              <p className="muted">Questions about the position can be sent to Prof. Cardona by email.</p>
-              <div className="button-row">
-                <a className="btn btn-primary" href={PHD_APPLY_URL} target="_blank" rel="noopener noreferrer">Apply now</a>
-                <a className="btn btn-secondary" href={mailto('Question about the PARCE-LAB Ph.D. position')}>Ask a question</a>
-              </div>
-            </StaggerItem>
+            {PHD_POSITION_OPEN ? (
+              <StaggerItem as="article" className="join-card highlight is-open">
+                <span className="open-badge">Now recruiting</span>
+                <div className="role">Prospective Ph.D. Students</div>
+                <h2>Ph.D. position open</h2>
+                <p>
+                  PARCE-LAB is recruiting a Ph.D. student. Candidates whose interests align with the lab are encouraged to
+                  apply through the online application form.
+                </p>
+                <h3>Be ready to share:</h3>
+                <PhdChecklist />
+                <p className="muted">Questions about the position can be sent to Prof. Cardona by email.</p>
+                <div className="button-row">
+                  <a className="btn btn-gold" href={PHD_APPLY_URL} target="_blank" rel="noopener noreferrer">Apply now</a>
+                  <a className="btn btn-secondary" href={mailto('Question about the PARCE-LAB Ph.D. position')}>Ask a question</a>
+                </div>
+              </StaggerItem>
+            ) : (
+              <StaggerItem as="article" className="join-card">
+                <div className="role">Prospective Ph.D. Students</div>
+                <h2>No advertised Ph.D. opening at this time</h2>
+                <p>
+                  There is currently no advertised Ph.D. opening. Prospective students whose interests strongly align with
+                  the lab are nevertheless welcome to introduce themselves by email.
+                </p>
+                <h3>Please include:</h3>
+                <PhdChecklist />
+                <p className="muted">A thoughtful, concise email is more helpful than a generic message sent to many laboratories.</p>
+                <a className="btn btn-secondary" href={mailto('Prospective PhD Interest in PARCE-LAB')}>Send an inquiry</a>
+              </StaggerItem>
+            )}
           </Stagger>
         </div>
       </section>
