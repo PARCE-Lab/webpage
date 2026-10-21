@@ -213,6 +213,12 @@ h1 { font-size: clamp(3rem,6.3vw,6.2rem); letter-spacing: -.06em; margin-bottom:
 .join-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
 .join-card { border: 1px solid var(--line); border-radius: 24px; padding: 34px; background: var(--surface); }
 .join-card.highlight { border-top: 7px solid var(--gold); }
+.join-card.is-open { border-color: var(--gold); background: linear-gradient(160deg, var(--notice-bg), var(--surface) 55%); box-shadow: 0 18px 45px rgba(248,184,0,.22); }
+.open-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; padding: 5px 13px; border-radius: 999px; background: var(--gold); color: var(--on-gold); font-size: .75rem; font-weight: 850; text-transform: uppercase; letter-spacing: .1em; }
+.open-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--on-gold); animation: open-pulse 1.6s ease-in-out infinite; }
+@keyframes open-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+.join-card.is-open .btn-gold { font-size: 1.05rem; padding: 15px 28px; }
+.join-card.is-open .btn-gold:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .join-card h2 { font-size: clamp(2rem,3vw,3rem); margin: 8px 0 16px; }
 .join-card h3 { margin-top: 28px; }
 .join-card li { margin-bottom: 8px; }

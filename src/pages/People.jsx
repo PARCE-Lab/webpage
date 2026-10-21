@@ -24,6 +24,7 @@ const PROFILE_LINKS = [
   {
     key: 'cv',
     label: 'CV',
+    external: true,
     icon: <svg {...iconProps}><path d="M6 2h9l3 3v17H6z" /><path d="M9 11h6M9 15h6M9 7h3" /></svg>,
   },
   {

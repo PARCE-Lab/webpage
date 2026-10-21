@@ -79,7 +79,7 @@ export default function Publications() {
         </p>
         <div className="button-row">
           <ExternalLink className="btn btn-primary" href={SCHOLAR_URL}>Google Scholar ↗</ExternalLink>
-          <a className="btn btn-secondary" href={asset(CV_URL)}>Full CV</a>
+          <ExternalLink className="btn btn-secondary" href={asset(CV_URL)}>Full CV</ExternalLink>
         </div>
       </PageHero>
 
