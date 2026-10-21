@@ -201,7 +201,7 @@ export default function Home() {
               </p>
               <div className="button-row">
                 <Link className="btn btn-primary" to="/people">Meet the lab →</Link>
-                <a className="btn btn-secondary" href={asset(CV_URL)}>Download CV</a>
+                <ExternalLink className="btn btn-secondary" href={asset(CV_URL)}>Download CV</ExternalLink>
               </div>
             </div>
           </Reveal>

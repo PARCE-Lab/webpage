@@ -5,6 +5,10 @@ export const EMAIL = 'cardonacalg@vcu.edu';
 export const CV_URL = '/assets/people/gustavo-cardona/cv.pdf';
 export const SCHOLAR_URL = 'https://scholar.google.com/citations?user=NqV4m6EAAAAJ&hl=en';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/gustavo-a-cardona-056227206/';
+// Join page: true shows the "Ph.D. position open" card with the Apply button;
+// false shows the default "No advertised Ph.D. opening" card.
+export const PHD_POSITION_OPEN = true;
+export const PHD_APPLY_URL = 'https://forms.gle/NcR4qFgH77d4eNb28';
 export const DEPARTMENT_URL = 'https://egr.vcu.edu/departments/mechanical-nuclear-engineering/';
 
 // Primary navigation. `cta` renders as the dark pill button at the end.
