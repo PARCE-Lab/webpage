@@ -1,0 +1,6 @@
+{
+  "title": "Calibrating a temperature sensor",
+  "course": "Example",
+  "summary": "Load sensor data with pandas and fit a linear calibration with scikit-learn.",
+  "order": 2
+}

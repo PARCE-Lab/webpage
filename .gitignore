@@ -1,2 +1,7 @@
 node_modules/
 dist/
+
+# Python grader: student submissions (emails, VCU IDs), hidden tests and solutions, and the signing key. Never commit.
+submissions/
+.grader-secret
+grader-private/

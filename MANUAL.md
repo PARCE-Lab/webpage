@@ -50,6 +50,7 @@ Open http://localhost:5173/webpage/. The page refreshes by itself every time you
 | Email, Google Scholar, LinkedIn, CV link | `src/data/site.js` |
 | Menu and footer links | `src/data/site.js` |
 | Facilities, Teaching, Join, Contact text | `src/pages/<Page>.jsx` |
+| Python grader assignments | `src/assignments/<assignment-id>/` (see [8.1](#81-python-grader-assignments-submissions-and-grading)) |
 | Figures for publications and research | `public/assets/images/figures/` |
 
 ---
@@ -224,6 +225,88 @@ Open `src/data/site.js`:
 The Facilities, Teaching, Join, and Contact pages keep their text inside the page file itself (`src/pages/Facilities.jsx`, etc.). Lists such as `platforms` in Facilities or `areas` in Teaching are at the top of each file. Edit the text between quotes and leave the rest unchanged.
 
 **Adding a completely new page** needs some code changes: a route in `src/App.jsx`, a menu entry in `src/data/site.js`, and a line in `public/sitemap.xml`. Ask whoever maintains the code, or follow [DEVELOPER.md](DEVELOPER.md).
+
+### 8.1 Python grader: assignments, submissions, and grading
+
+The Python grader (Teaching → Tools, at `/teaching/tools`) lets students write Python in the browser, check it against your [pytest](https://docs.pytest.org) tests, and submit it. NumPy, pandas, scikit-learn, SciPy, Matplotlib, and SymPy are available. PyTorch is not, because it can't run in a browser.
+
+> **Current setup (test phase).** Submissions and new assignments are saved by the grader server, which runs only on your computer with `npm run dev` (or `npm run preview`). On the public website the grader works for practice, but **Submit** says submitting isn't available yet. Storage is a set of folders in the repository (`server/storage.js`). A database version later only needs that file replaced.
+
+**How it works**
+
+1. You create a homework, quiz, or exam at `/teaching/tools/author` (link at the bottom of the grader page).
+2. Students write code, use **Run tests** for instant feedback, and **Submit** with their email and VCU ID (V followed by 8 digits).
+3. Each submission is saved as `submissions/<assignment-id>/<email>.md`. It holds the code, the tests the student's browser ran, the server's time stamp, whether it was late, and a SHA-256 fingerprint of the code. The student gets the same fingerprint as a receipt. Earlier attempts move to `submissions/<assignment-id>/history/`.
+4. You run `npm run regrade` to get the scores that count (below).
+
+**Why the browser score doesn't count, and what prevents cheating**
+
+The browser tests run on the student's own computer, so a student could change the score the browser sends. The grader therefore treats that score as a preview only:
+- `npm run regrade` re-runs every submission's code against the published tests **and your hidden tests**, which never leave your computer. Code that only passes the visible tests (for example, by hard-coding answers) is caught.
+- Every submission file carries a signature made with a secret key (`.grader-secret`, created automatically). If anyone edits a file afterwards (its code, student, time, or score), regrade reports **FILE MODIFIED**.
+- The time stamp comes from the server, so a wrong clock on the student's computer can't make work look on time.
+- Students currently type their email; nothing yet proves they are who they say. VCU Google sign-in is planned for when the grader moves to a real server.
+
+**Privacy.** `submissions/`, `grader-private/`, and `.grader-secret` are listed in `.gitignore`, so git never commits them. Submissions contain student emails and VCU IDs, which are student records (FERPA). Never commit them, upload them to the website, or share them outside the course staff. Back them up somewhere private.
+
+**Create or edit an assignment** at `/teaching/tools/author` while `npm run dev` is running:
+
+| Field | Where it goes | Who sees it |
+|---|---|---|
+| Title, ID, type (Homework / Quiz / Exam), course, due date, summary, instructions | `src/assignments/<id>/meta.json`, `instructions.md` | Public |
+| Starter code | `src/assignments/<id>/submission.py` | Public (students edit it) |
+| Tests | `src/assignments/<id>/test_submission.py` | Public (students can run them) |
+| Data files (CSV, TXT, JSON) | `src/assignments/<id>/` | Public |
+| Hidden tests | `grader-private/<id>/test_hidden.py` | Only you; used by `npm run regrade` |
+| Reference solution | `grader-private/<id>/solution.py` | Only you |
+
+Use **Test the solution** before saving: it should get every point, including the hidden tests. The ID becomes the link, `https://parce-lab.github.io/webpage/teaching/tools?a=<id>`, and can't be changed after saving. To publish an assignment, commit its `src/assignments/<id>/` folder like any other change (section 10). Because `grader-private/` isn't in git, keep a private backup of your hidden tests and solutions.
+
+Writing tests:
+
+```python
+import pytest
+from submission import normalize
+
+
+@pytest.mark.points(2)            # optional; each test is worth 1 point by default
+def test_normalize_length():
+    """normalize returns a vector of length 1"""   # first docstring line = name students see
+    ...
+```
+
+You can also create the folder by hand; the easiest start is copying `src/assignments/vectors-and-rotations/`.
+
+**Grade submissions**
+
+```
+npm run regrade                      # every assignment that has submissions
+npm run regrade -- my-assignment-id  # one assignment
+```
+
+For each student's latest submission, this prints the verified score and any warnings: `FILE MODIFIED`, `late`, `timed out` (60 s limit, for example an endless loop), `tests could not run` (for example a syntax error), or `browser claimed 8/8` when the browser reported more than the real score. It also writes `submissions/<id>/grades.csv` for your gradebook. The first run downloads the Python packages, so it needs an internet connection.
+
+---|---|
+| `meta.json` | `{ "title": "…", "course": "…", "summary": "…", "order": 3 }`. `order` sets the position in the menu (lowest first). |
+| `instructions.md` | The instructions shown beside the editor, in Markdown (`## Heading`, `**bold**`, `` `code` ``, lists, code blocks). |
+| `submission.py` | The starter code students edit. Put the functions to complete here, and examples in an `if __name__ == "__main__":` block that **Run code** executes. |
+| `test_*.py` | pytest tests. Import the student's code with `from submission import my_function`. |
+| Any other file | Data such as `data.csv`, placed next to `submission.py` so `pd.read_csv("data.csv")` works. Text files only (CSV, TXT, JSON). |
+
+Writing tests:
+
+```python
+import pytest
+from submission import normalize
+
+
+@pytest.mark.points(2)            # optional; each test is worth 1 point by default
+def test_normalize_length():
+    """normalize returns a vector of length 1"""   # first docstring line = name students see
+    ...
+```
+
+Before publishing, open the assignment in the local preview, paste your reference solution into the editor, and click **Run tests** to make sure it gets full marks. Then click **Reset** so your solution isn't left saved in your browser. Never commit a solution file into the assignment folder: everything in the folder is published with the website.
 
 ---
 

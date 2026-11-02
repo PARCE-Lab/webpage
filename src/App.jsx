@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
@@ -11,6 +12,10 @@ import Contact from './pages/Contact.jsx';
 import News from './pages/News.jsx';
 import NotFound from './pages/NotFound.jsx';
 
+// Lazy: the code editor is large and only these pages need it.
+const PythonGrader = lazy(() => import('./pages/PythonGrader.jsx'));
+const GraderAuthor = lazy(() => import('./pages/GraderAuthor.jsx'));
+
 export default function App() {
   return (
     <Routes>
@@ -21,6 +26,8 @@ export default function App() {
         <Route path="publications" element={<Publications />} />
         <Route path="facilities" element={<Facilities />} />
         <Route path="teaching" element={<Teaching />} />
+        <Route path="teaching/tools" element={<Suspense fallback={null}><PythonGrader /></Suspense>} />
+        <Route path="teaching/tools/author" element={<Suspense fallback={null}><GraderAuthor /></Suspense>} />
         <Route path="join" element={<Join />} />
         <Route path="contact" element={<Contact />} />
         <Route path="news" element={<News />} />

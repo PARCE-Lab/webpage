@@ -1,5 +1,6 @@
+import { Link } from 'react-router';
 import Seo from '../components/Seo.jsx';
-import { Stagger, StaggerItem } from '../components/motion.jsx';
+import { Reveal, Stagger, StaggerItem } from '../components/motion.jsx';
 import PageHero from '../components/PageHero.jsx';
 
 const areas = [
@@ -35,6 +36,28 @@ export default function Teaching() {
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+      </section>
+      <section className="section section-soft" id="tools">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">Tools</div>
+              <h2>Practice in the browser.</h2>
+            </div>
+            <p>Tools for coursework that run entirely in your browser, with nothing to install.</p>
+          </div>
+          <Reveal as="article" className="card tool-card">
+            <div className="platform-icon" aria-hidden="true">Py</div>
+            <div>
+              <h3>Python grader</h3>
+              <p>
+                Write and run Python with NumPy, pandas, scikit-learn, SciPy, and Matplotlib already installed, and check
+                your homework against your instructor’s tests for instant feedback.
+              </p>
+              <Link className="btn btn-primary tool-card-btn" to="/teaching/tools">Open the Python grader →</Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>
