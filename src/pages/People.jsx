@@ -90,14 +90,14 @@ const undergraduateStudents = [
   {
     name: 'Kenneth White',
     role: 'Undergraduate Researcher',
-    bio: 'Kenneth is an undergraduate researcher in PARCE-LAB at Virginia Commonwealth University.',
-    note: 'A photograph, biography, research interests, and project information will be added later.',
+    bio: 'What interests me most about robotics is the idea of taking something from a simple concept and turning it into a machine that can move, respond, and perform tasks on its own. I’ve always enjoyed building things and figuring out how different components work together, which naturally led me to pursue Mechanical Engineering at Virginia Commonwealth University (VCU). Robotics allows me to combine my interests in mechanical design, programming, and problem-solving while constantly challenging myself to learn something new. My goal is to continue developing my technical skills, gain hands-on experience, and explore different ways to design and improve robotic systems.',
+    photo: '/assets/people/kenneth-white/photo.webp',
   },
   {
     name: 'Timothy Wondree',
     role: 'Undergraduate Researcher',
-    bio: 'Timothy is an undergraduate researcher in PARCE-LAB at Virginia Commonwealth University.',
-    note: 'A photograph, biography, research interests, and project information will be added later.',
+    bio: 'My research interests focus on autonomous systems, robotics, human-machine interaction, and the integration of artificial intelligence with mechanical engineering. I am particularly interested in developing intelligent unmanned aerial vehicles (UAVs) capable of autonomous navigation, real-time decision-making, computer vision, and adaptive control. I am also interested in exploring how humans can interact with and control intelligent systems through advanced interfaces. My goal is to investigate how AI, advanced sensing technologies, and human-machine collaboration can improve the capabilities, reliability, and efficiency of autonomous systems.',
+    photo: '/assets/people/timothy-wondree/photo.webp',
   },
 ];
 

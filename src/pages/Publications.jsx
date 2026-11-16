@@ -6,6 +6,7 @@ import PageHero from '../components/PageHero.jsx';
 import ExternalLink from '../components/ExternalLink.jsx';
 import { AnimatedNumber } from '../components/motion.jsx';
 import { Zoomable } from '../components/Lightbox.jsx';
+import { LabMark } from '../components/Logo.jsx';
 import { publications } from '../data/publications.js';
 import { CV_URL, SCHOLAR_URL } from '../data/site.js';
 
@@ -108,11 +109,16 @@ export default function Publications() {
                     <div className="pub-group-items">
                       <AnimatePresence mode="popLayout" initial={false}>
                         {g.items.map((p) => (
-                          <motion.article key={p.title} className={`pub${p.image ? ' pub-visual' : ''}`} {...listItem}>
-                            {p.image && (
+                          <motion.article key={p.title} className="pub pub-visual" {...listItem}>
+                            {p.image ? (
                               <figure className="pub-figure">
                                 <Zoomable src={p.image} alt={p.imageAlt || p.title} caption={p.title} loading="lazy" />
                               </figure>
+                            ) : (
+                              // Same-size slot for papers without a figure yet; add `image` in data/publications.js.
+                              <div className="pub-figure pub-figure-empty" aria-hidden="true">
+                                <LabMark className="pub-figure-mark" />
+                              </div>
                             )}
                             <div className="pub-copy">
                               <h3>{p.title}</h3>
