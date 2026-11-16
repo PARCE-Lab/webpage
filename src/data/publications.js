@@ -15,7 +15,24 @@ export const publications =
     "type": "conference",
     "title": "Expressive Power of WSTL Formulas for Learning-to-Rank",
     "authors": "R. Karagulle, G. A. Cardona, N. Ozay, and C.-I. Vasile",
-    "venue": "IEEE Conference on Decision and Control (CDC)"
+    "venue": "IEEE Conference on Decision and Control (CDC)",
+    "link": "https://arxiv.org/abs/2609.22464",
+    "image": "/assets/images/figures/wstl-ranking-trajectories.webp",
+    "imageAlt": "Robot trajectories through regions A, B, and C around an unsafe zone, ranked by WSTL formulas"
+  },
+  {
+    "year": 2026,
+    "type": "conference",
+    "title": "Model-Reference Residual Reinforcement Learning for Quadrotor Wind Disturbance Compensation",
+    "authors": "J. Molina, G. A. Cardona, and J. Calderon",
+    "venue": "IEEE Latin American Robotics Symposium (LARS)"
+  },
+  {
+    "year": 2026,
+    "type": "conference",
+    "title": "Communication-Free Multi-Shepherd Coordination for Heterogeneous Swarm Deployment in Multi-Region Search and Rescue",
+    "authors": "D. Paez, J. Calderon, and G. A. Cardona",
+    "venue": "IEEE Latin American Robotics Symposium (LARS)"
   },
   {
     "year": 2025,
@@ -37,7 +54,10 @@ export const publications =
     "type": "conference",
     "title": "An Iterative Approach for Heterogeneous Multi-Agent Route Planning with Resource Transportation Uncertainty and Temporal Logic Goals",
     "authors": "G. A. Cardona, K. Liang, and C.-I. Vasile",
-    "venue": "IEEE International Conference on Robotics and Automation (ICRA)"
+    "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
+    "link": "https://arxiv.org/abs/2508.19429",
+    "image": "/assets/images/figures/resource-transport-planetary.webp",
+    "imageAlt": "Planetary exploration scenario with heterogeneous rovers, resources, and home bases"
   },
   {
     "year": 2024,
@@ -55,7 +75,10 @@ export const publications =
     "type": "conference",
     "title": "Learning Optimal Signal Temporal Logic Decision Trees for Classification: A Max-Flow MILP Formulation",
     "authors": "K. Liang, G. A. Cardona, D. Kamale, and C.-I. Vasile",
-    "venue": "IEEE Conference on Decision and Control (CDC), pp. 8332–8337"
+    "venue": "IEEE Conference on Decision and Control (CDC), pp. 8332–8337",
+    "link": "https://arxiv.org/abs/2407.21090",
+    "image": "/assets/images/figures/stl-decision-tree-maxflow.webp",
+    "imageAlt": "Max-flow graph used to classify with an STL decision tree"
   },
   {
     "year": 2024,
@@ -94,7 +117,9 @@ export const publications =
     "title": "A Flexible and Efficient Temporal Logic Tool for Python: PyTeLo",
     "authors": "G. A. Cardona, K. Leahy, M. Mann, and C.-I. Vasile",
     "venue": "Open-source software and preprint",
-    "link": "https://arxiv.org/abs/2310.08714"
+    "link": "https://arxiv.org/abs/2310.08714",
+    "image": "/assets/images/figures/pytelo-architecture.webp",
+    "imageAlt": "PyTeLo architecture: parser, abstract syntax tree, MILP formulation, and solver"
   },
   {
     "year": 2022,
@@ -112,6 +137,13 @@ export const publications =
     "image": "/assets/images/figures/partial-satisfaction-trajectories.webp",
     "imageAlt": "Multi-robot trajectories and robustness results for partial satisfaction",
     "featured": true
+  },
+  {
+    "year": 2022,
+    "type": "conference",
+    "title": "Customizable-ModQuad: A Versatile Hardware-Software Platform to Develop Lightweight and Low-Cost Aerial Vehicles",
+    "authors": "D. S. D’Antonio, J. Xu, G. A. Cardona, and D. Saldaña",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Workshop"
   },
   {
     "year": 2021,
@@ -142,7 +174,10 @@ export const publications =
     "type": "conference",
     "title": "Non-Prehensile Manipulation of Cuboid Objects Using a Catenary Robot",
     "authors": "G. A. Cardona, D. S. D’Antonio, C.-I. Vasile, and D. Saldaña",
-    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 5270–5275"
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 5270–5275",
+    "link": "https://arxiv.org/abs/2108.01572",
+    "image": "/assets/images/figures/catenary-box-manipulation.webp",
+    "imageAlt": "Two quadrotors with a cable rolling a cardboard box"
   },
   {
     "year": 2021,
@@ -157,6 +192,20 @@ export const publications =
     "title": "Robust Adaptive Synchronization of Interconnected Heterogeneous Quadrotors Transporting a Cable-Suspended Load",
     "authors": "G. A. Cardona, M. Arevalo-Castiblanco, D. Tellez-Castro, J. Calderon, and E. Mojica-Nava",
     "venue": "IEEE International Conference on Robotics and Automation (ICRA), pp. 31–37"
+  },
+  {
+    "year": 2021,
+    "type": "conference",
+    "title": "Event-Triggered Control for Weight-Unbalanced Directed Robot Networks",
+    "authors": "J. D. Pabon, G. A. Cardona, N. I. Ospina, J. Calderon, and E. Mojica-Nava",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 5831–5836"
+  },
+  {
+    "year": 2021,
+    "type": "conference",
+    "title": "Distributed Particle Swarm Optimization for Multi-Robot System in Search and Rescue Operations",
+    "authors": "D. Paez, J. P. Romero, B. Noriega, G. A. Cardona, and J. M. Calderon",
+    "venue": "IFAC-PapersOnLine, 54(4), 1–6"
   },
   {
     "year": 2019,
@@ -185,5 +234,61 @@ export const publications =
     "title": "Cooperative Transportation of a Cable-Suspended Load by Multiple Quadrotors",
     "authors": "G. A. Cardona, D. Tellez-Castro, and E. Mojica-Nava",
     "venue": "IFAC-PapersOnLine, 52(20), 145–150"
+  },
+  {
+    "year": 2019,
+    "type": "conference",
+    "title": "An Adaptive Optimal Control Modification with Input Uncertainty for Unknown Heterogeneous Agents Synchronization",
+    "authors": "M. F. Arevalo-Castiblanco, D. Tellez-Castro, G. A. Cardona, and E. Mojica-Nava",
+    "venue": "IEEE Conference on Decision and Control (CDC), pp. 8242–8247"
+  },
+  {
+    "year": 2018,
+    "type": "conference",
+    "title": "Rendezvous Consensus Algorithm Applied to the Location of Possible Victims in Disaster Zones",
+    "authors": "J. León, G. A. Cardona, L. G. Jaimes, J. M. Calderon, and P. O. Rodriguez",
+    "venue": "International Conference on Artificial Intelligence and Soft Computing (ICAISC), pp. 700–710"
+  },
+  {
+    "year": 2018,
+    "type": "conference",
+    "title": "Leader-Follower Formation for UAV Robot Swarm Based on Fuzzy Logic Theory",
+    "authors": "W. O. Quesada, J. I. Rodriguez, J. C. Murillo, G. A. Cardona, D. Yanguas-Rojas, L. G. Jaimes, and J. M. Calderon",
+    "venue": "International Conference on Artificial Intelligence and Soft Computing (ICAISC), pp. 740–751"
+  },
+  {
+    "year": 2018,
+    "type": "conference",
+    "title": "Design of a Simplified Artificial Neuron (I&F) Model in FPGA",
+    "authors": "G. A. Cardona, D. Yanguas-Rojas, L. G. Jaimes, M. Obeng, X. Wu, J. M. Calderon, and V. Castro",
+    "venue": "SoutheastCon, pp. 1–6"
+  },
+  {
+    "year": 2017,
+    "type": "conference",
+    "title": "Victims Search, Identification, and Evacuation with Heterogeneous Robot Networks for Search and Rescue",
+    "authors": "D. Yanguas-Rojas, G. A. Cardona, J. Ramirez-Rugeles, and E. Mojica-Nava",
+    "venue": "IEEE Colombian Conference on Automatic Control (CCAC), pp. 1–6"
+  },
+  {
+    "year": 2017,
+    "type": "conference",
+    "title": "Robot Swarms Theory Applicable to Seek and Rescue Operation",
+    "authors": "J. León, G. A. Cardona, A. Botello, and J. M. Calderon",
+    "venue": "Intelligent Systems Design and Applications (ISDA 2016), Advances in Intelligent Systems and Computing, vol. 557"
+  },
+  {
+    "year": 2016,
+    "type": "conference",
+    "title": "Impact Force Reduction Using Variable Stiffness with an Optimal Approach for Falling Robots",
+    "authors": "J. Calderon, G. A. Cardona, M. Llofriu, M. Shamsi, F. Williams, W. Moreno, and A. Weitzenfeld",
+    "venue": "RoboCup: Robot World Cup, pp. 404–415"
+  },
+  {
+    "year": 2016,
+    "type": "conference",
+    "title": "Reduction of Impact Force in Falling Robots Using Variable Stiffness",
+    "authors": "G. A. Cardona, W. Moreno, A. Weitzenfeld, and J. M. Calderon",
+    "venue": "SoutheastCon, pp. 1–6"
   }
 ];
